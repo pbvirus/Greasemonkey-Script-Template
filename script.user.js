@@ -16,10 +16,15 @@ function addButton(text, onclick, cssObj) {
     cssObj = cssObj || {position: 'absolute', top: '7%', left:'4%', 'z-index': 3};
     let button = document.createElement('button'), btnStyle = button.style;
     document.body.appendChild(button);
+    
     button.innerHTML = text;
     button.onclick = onclick;
     btnStyle.position = 'absolute';
-    Object.keys(cssObj).forEach(key => btnStyle[key] = cssObj[key]);
+    
+    Object.keys(cssObj).forEach(key => {
+        btnStyle[key] = cssObj[key];
+    });
+    
     return button;
 }
 
@@ -31,7 +36,7 @@ window.addEventListener('load', () => {
         'z-index': 10,
         'background-color': 'red'
     };
-    addButton('Remove Future Tasks',  dummy, cssProp);
+    addButton('Remove Future Tasks', dummy, cssProp);
 });
 
 function dummy(){
